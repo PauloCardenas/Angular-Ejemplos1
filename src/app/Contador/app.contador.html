@@ -1,0 +1,38 @@
+
+<!--la variable por interpolacion-->
+<H1>esta aplicacion lleva de titulo: {{Titulo}}</H1>
+<p></p>
+<H1>suma con javascript en el mismo html</H1>
+<!--todos los eventos van entre parentesis y se debe respetar mayusculas/minusculas, ej (Click) no funciona-->
+<!--luego del evento, se indica que es igual a una expresion de javascript-->
+<button (click)="numero = numero + 1;"> + 1 </button>
+
+<span>{{numero}}</span>
+
+<!--la forma resumida de suma , numero -= 1 no sirve en html-->
+<button  (click)="numero = numero - 1;"> - 1 </button>
+
+
+<H1>suma con llamado a funciones</H1>
+<!--todos los eventos van entre parentesis y se debe respetar mayusculas/minusculas, ej (Click) no funciona-->
+<!--luego del evento, se indica que es igual a una expresion de javascript-->
+<button (click)="sumar();"> + 1 </button>
+
+<span>{{numero2}}</span>
+
+<!--la forma resumida de suma , numero -= 1 no sirve en html-->
+<button  (click)="restar();"> - 1 </button>
+
+<H1>suma con llamado a funciones, reciben como argumento el decremento que indica el usuario</H1>
+<!--todos los eventos van entre parentesis y se debe respetar mayusculas/minusculas, ej (Click) no funciona-->
+<!--luego del evento, se indica que es igual a una expresion de javascript-->
+<input type="text">
+<button (click)="sumar2(3);"> +  </button>
+
+<span>{{numero3}}</span>
+
+<!--la forma resumida de suma , numero -= 1 no sirve en html-->
+<button  (click)="restar2(2);"> -  </button>
+
+
+

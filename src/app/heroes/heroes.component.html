@@ -1,0 +1,76 @@
+
+
+<p>listado de heroes de forma estatica</p>
+<ul>
+    <li>{{ heroes[0] }}</li>
+    <li>{{ heroes[1] }}</li>
+    <li>{{ heroes[2] }}</li>
+    <li>{{ heroes[3] }}</li>
+</ul>
+
+<p></p>
+
+
+<p>listado de heroes con *ngFor</p>
+<!--SE RECORRE EL ARREGLO heroes, cada valor del arreglo en heroe-->
+<ul>
+    <li *ngFor="let heroe of heroes">
+        {{heroe}}
+    </li>
+</ul>
+
+<p></p>
+
+<p>listado de heroes con *ngFor e imprimiendo su indice de arreglo</p>
+<ul>
+    <li *ngFor="let heroe of heroes; let i = index">
+       {{i}} - {{heroe}}
+    </li>
+</ul>
+
+<p>heroe borrado: {{heroeBorrado}}</p>
+
+<p></p>
+
+<button (click)="BorrarPrimerHeroe()"> Borrar primer heroe</button>
+
+<p></p>
+
+<hr>
+<h1>directiva *ngIf</h1>
+
+<p *ngIf="true">esto solo se imprimira si es true</p>
+
+<button (click)="aumentarvalorNumerico()">Aumentar</button>
+<p>variable valorNumerico solo se mostrara si es par </p>
+<p>valor: {{valorNumerico}}</p>
+<p *ngIf="(valorNumerico % 2 == 0)">{{valorNumerico}}</p>
+
+<hr>
+<h1>directiva *ngIf con else de referencia local</h1>
+<p *ngIf="false; else valorSiEsFalso">es verdadero</p>
+<ng-template #valorSiEsFalso>
+    <p>es falso</p>
+</ng-template>
+
+<hr>
+<p>implementacion de dos else-if pueden ser mas</p>
+<p>ademas es otra forma de codigo, lleva colchetes</p>
+<ng-template [ngIf]="false" [ngIfElse]="second">la primera condicion</ng-template>
+<ng-template #second>
+  <ng-template [ngIf]="false" [ngIfElse]="third">la segunda condicion</ng-template>
+</ng-template>
+<ng-template #third>
+  <ng-template [ngIf]="true">la tercera condicion</ng-template>
+</ng-template>
+
+<hr>
+<p>Para Condicion es if(variable), la condicion se cumple solo es true o si existe valor, cuando es falso, null, undefined o texto vacio no se cumple. </p>
+<ul>
+    <li *ngFor="let elemento of ListaElementos; let i = index">
+        <p *ngIf="elemento; else valorSiEsFalso">{{i}} - {{elemento}}</p>
+        <ng-template #valorSiEsFalso>
+            <p>es null, undefined o string vacio</p>
+        </ng-template>        
+    </li>
+</ul>
